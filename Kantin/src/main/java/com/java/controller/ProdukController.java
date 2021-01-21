@@ -64,8 +64,8 @@ public class ProdukController {
 	@DeleteMapping(value="/delete/{id}")
 	 public ResponseEntity<String> deleteProduk(@PathVariable("id") int id){
 		 try {
-			 Produk existkamar = produkService.getProdukById(id);
-			 produkService.deleteKamar(id);
+			 Produk existproduk = produkService.getProdukById(id);
+			 produkService.deleteProduk(id);
 			 return new ResponseEntity<String>(HttpStatus.OK);
 		 }catch(NoSuchElementException e) {
 			 return new ResponseEntity<String>(HttpStatus.NOT_FOUND);

@@ -28,7 +28,7 @@ public class ProdukService {
 		produkRepo.save(produk);
 	}
 	
-	public void deleteKamar(int id) {
+	public void deleteProduk(int id) {
 		produkRepo.deleteById(id);
 	}
 }

@@ -72,6 +72,17 @@ public class ProdukController {
 		 }
 	 }
 	
+	@PutMapping(value = "/updateStock/{id}/{sell}")
+	public ResponseEntity<Produk> updateStock (@PathVariable("id") int id, @PathVariable("sell") Integer sell){
+		try {
+			produkService.updateStock(id, sell);
+			System.out.println(sell);
+			return new ResponseEntity<Produk>(HttpStatus.OK);
+		}catch(NoSuchElementException e) {
+			return new ResponseEntity<Produk>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	
 	
 	

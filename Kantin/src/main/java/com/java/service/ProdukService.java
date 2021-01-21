@@ -32,5 +32,9 @@ public class ProdukService {
 		produkRepo.deleteById(id);
 	}
 	
+	public void updateStock(int id, int sell) {
+		produkRepo.updateStockProduk(id, sell);
+	}
+
 	
 }

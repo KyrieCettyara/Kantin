@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.java.model.IPemesanan;
 import com.java.model.Pemesanan;
 
 @Repository
@@ -24,4 +25,10 @@ public interface PemesananRepository extends JpaRepository<Pemesanan, Integer>{
 	@Query(value = "SELECT * FROM pemesanan_produk p WHERE p.status_bayar = 1", nativeQuery = true)
 	List<Pemesanan> pemesananFinish();
 	
+	@Modifying
+	@Query(value = "SELECT MONTH(tanggal_pemesanan) AS monthSale, SUM(jumlah_harga) AS totalSale FROM pemesanan_produk p WHERE status_bayar = 1 GROUP BY YEAR(tanggal_pemesanan), MONTH(tanggal_pemesanan)", nativeQuery = true)
+	List<IPemesanan> sumTotalSaleByMonth();
+	
+	
+	;
 }

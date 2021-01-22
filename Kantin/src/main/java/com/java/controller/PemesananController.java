@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.java.model.IPemesanan;
 import com.java.model.Pemesanan;
 import com.java.model.Produk;
 import com.java.service.PemesananService;
@@ -34,6 +35,11 @@ public class PemesananController {
 	@GetMapping("/FinishPemesanan")
 	public List<Pemesanan> getAllFPemesanan(){
 		return pemesananService.getFPemesanan();
+	}
+	
+	@GetMapping("/SaleByMonth")
+	public List<IPemesanan> getSaleByMonth(){
+		return pemesananService.getMonthTotalSale();
 	}
 	
 	@PostMapping(value="/add")

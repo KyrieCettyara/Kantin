@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.java.model.IPemesanan;
 import com.java.model.Pemesanan;
 import com.java.repository.PemesananRepository;
 
@@ -33,5 +34,9 @@ public class PemesananService {
 	
 	public List<Pemesanan> getFPemesanan(){
 		return pemesananRepo.pemesananFinish();
+	}
+	
+	public List<IPemesanan> getMonthTotalSale(){
+		return pemesananRepo.sumTotalSaleByMonth();
 	}
 }

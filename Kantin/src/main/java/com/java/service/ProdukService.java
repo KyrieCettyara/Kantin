@@ -18,7 +18,7 @@ public class ProdukService {
 	public List<Produk> getAllProduk(){
 		return produkRepo.findAll();
 	}
-	
+		
 	
 	public Produk getProdukById(int id) {
 		return produkRepo.findById(id).get();

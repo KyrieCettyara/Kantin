@@ -12,11 +12,11 @@ public class Pemesanan {
 	@Id
 	private int id_pemesanan;
 	private int id_produk;
-	private int id_user;
+	private Integer id_user;
 	private Date tanggal_pemesanan;
 	private double jumlah_harga;
-	private int status_bayar;
-	private int status_produk;
+	private Integer status_bayar;
+	private Integer status_produk;
 	public int getId_pemesanan() {
 		return id_pemesanan;
 	}
@@ -29,10 +29,10 @@ public class Pemesanan {
 	public void setId_produk(int id_produk) {
 		this.id_produk = id_produk;
 	}
-	public int getId_user() {
+	public Integer getId_user() {
 		return id_user;
 	}
-	public void setId_user(int id_user) {
+	public void setId_user(Integer id_user) {
 		this.id_user = id_user;
 	}
 	public Date getTanggal_pemesanan() {
@@ -47,18 +47,18 @@ public class Pemesanan {
 	public void setJumlah_harga(double jumlah_harga) {
 		this.jumlah_harga = jumlah_harga;
 	}
-	public int getStatus_bayar() {
+	public Integer getStatus_bayar() {
 		return status_bayar;
 	}
-	public void setStatus_bayar(int status_bayar) {
+	public void setStatus_bayar(Integer status_bayar) {
 		this.status_bayar = status_bayar;
 	}
-	public int getStatus_produk() {
+	public Integer getStatus_produk() {
 		return status_produk;
 	}
-	public void setStatus_produk(int status_produk) {
+	public void setStatus_produk(Integer status_produk) {
 		this.status_produk = status_produk;
 	}
-
+	
 	
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Data Produk</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="http://localhost:8081/produk">Produk</a>
+      <a class="nav-item nav-link" href="http://localhost:8081/pemesanan">Pemesanan</a>
+      <a class="nav-item nav-link active" href="http://localhost:8081/tempat-duduk">Tempat Duduk<span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+
+  <div class="container">
+  	<h2>Data Semua Tempat Duduk</h2> 
+  	<a class="btn btn-primary btn-sm" th:href="@{/produk/formAddTd}" role="button " >Tambah Produk</a>
+    <br></br>     			   			
+  		<table class="table"  id="viewDataProduk">
+		  <thead>
+		    <tr>
+		      <th scope="col">No Seat</th>
+		      <th scope="col">Status</th>
+		      <th scope="col"> </th>
+		      <th> </th>
+		    </tr>
+		  </thead>
+		    <tbody>
+			    <tr th:each="i : ${listTd}">
+			      <td th:text="${i.no_seat}"></td>
+			      <td th:text="${i.status}"></td>
+			      <td> 
+          			<a class="btn btn-primary btn-sm" th:href="@{/tempat-duduk/hapus/__${i.id_seat}__}" role="button " >Hapus</a>
+          			<a class="btn btn-primary btn-sm" th:href="@{/tempat-duduk/formTd/__${i.id_seat}__}" role="button ">Edit</a>
+               	  </td>
+				 </tr>
+			  </tbody>
+		</table>
+
+  </div>
+</body>
+</html>

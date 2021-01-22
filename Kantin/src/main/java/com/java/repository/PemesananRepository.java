@@ -1,5 +1,7 @@
 package com.java.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -17,5 +19,9 @@ public interface PemesananRepository extends JpaRepository<Pemesanan, Integer>{
 	@Modifying
 	@Query(value = "UPDATE pemesanan_produk p SET p.status_produk = :status WHERE p.id_pemesanan = :id", nativeQuery = true)
 	void updateStatusProduk(@Param(value = "id") int id, @Param(value = "status") int status);
+	
+	@Modifying
+	@Query(value = "SELECT * FROM pemesanan_produk p WHERE p.status_bayar = 1", nativeQuery = true)
+	List<Pemesanan> pemesananFinish();
 	
 }

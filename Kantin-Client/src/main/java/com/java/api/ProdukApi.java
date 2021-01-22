@@ -18,8 +18,6 @@ public class ProdukApi {
 	
 	String url = "http://localhost:8080/";
 	
-
-	
 	@Autowired RestTemplate restTemplate;
 	
 	public List<Produk> getAllProduk(){
@@ -28,14 +26,14 @@ public class ProdukApi {
 	}
 	
 	public Produk getProdukById(int id) {
-		Produk produk = restTemplate.getForObject(url + "/produk/get/{id}", Produk.class, id);
+		Produk produk = restTemplate.getForObject(url + "produk/get/{id}", Produk.class, id);
 		return produk;
 	}
 	
 	public void deleteProduk(Integer id) {
 		Map<String, Integer> parameter = new HashMap<String, Integer>();
 		parameter.put("id", id);
-		restTemplate.delete(url + "/produk/delete/{id}", parameter);
+		restTemplate.delete(url + "produk/delete/{id}", parameter);
 	}
 	
 	public void updateProduk(Produk produk) {

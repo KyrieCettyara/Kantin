@@ -3,9 +3,11 @@ package com.java.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 
  	
 @Entity
@@ -14,10 +16,19 @@ public class Seat {
 	@Id
 	private int id_seat;
 	private String no_seat;
-	private int id_user;
-	private int status;
+	private Integer status;
 	private Date waktu_pemesanan;
+	@Column(name ="id_user")
+	private Integer user;
 	private Date waktu_expired;
+	
+	
+	public Integer getUser() {
+		return user;
+	}
+	public void setUser(Integer user) {
+		this.user = user;
+	}
 	public int getId_seat() {
 		return id_seat;
 	}
@@ -30,16 +41,10 @@ public class Seat {
 	public void setNo_seat(String no_seat) {
 		this.no_seat = no_seat;
 	}
-	public int getId_user() {
-		return id_user;
-	}
-	public void setId_user(int id_user) {
-		this.id_user = id_user;
-	}
 	public int getStatus() {
 		return status;
 	}
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 	public Date getWaktu_pemesanan() {

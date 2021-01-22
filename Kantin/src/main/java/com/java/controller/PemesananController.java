@@ -31,6 +31,11 @@ public class PemesananController {
 		return pemesananService.getAllPemesanan();
 	}
 	
+	@GetMapping("/FinishPemesanan")
+	public List<Pemesanan> getAllFPemesanan(){
+		return pemesananService.getFPemesanan();
+	}
+	
 	@PostMapping(value="/add")
 	 public ResponseEntity<Pemesanan> createPemesanan(@RequestBody Pemesanan pemesanan){
 		pemesananService.savePemesanan(pemesanan);

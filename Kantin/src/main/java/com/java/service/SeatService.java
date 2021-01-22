@@ -14,7 +14,6 @@ import com.java.repository.SeatRepository;
 @Transactional
 public class SeatService {
 	
-
 	@Autowired SeatRepository seatRepo;
 	
 	public List<Seat> getAllSeat(){

@@ -30,4 +30,8 @@ public class PemesananService {
 	public void updateStatusProduk(int id, int status) {
 	    pemesananRepo.updateStatusProduk(id, status);
 	}
+	
+	public List<Pemesanan> getFPemesanan(){
+		return pemesananRepo.pemesananFinish();
+	}
 }

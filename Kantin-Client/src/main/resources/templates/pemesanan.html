@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Data Produk</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="http://localhost:8081/produk">Produk</a>
+      <a class="nav-item nav-link active " href="http://localhost:8081/pemesanan">Pemesanan<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="http://localhost:8081/tempat-duduk">Tempat Duduk</a>
+    </div>
+  </div>
+</nav>
+
+  <div class="container">
+  	<h2>Data Semua Pemesanan</h2>    			
+  		<table class="table"  id="viewDataProduk">
+		  <thead>
+		    <tr>
+		      <th scope="col">No. </th>
+		      <th scope="col">Tanggal Pemesanan</th>
+		      <th scope="col">Harga</th>
+		      <th scope="col">Status</th>
+		      <th scope="col"> </th>
+		    </tr>
+		  </thead>
+		    <tbody>
+			    <tr th:each="i, iterator  : ${listPemesanan}">
+			      <td th:text="${iterator.index+1}"></td>
+			      <td th:text="${#dates.format(i.tanggal_pemesanan ,'dd/MMM/yyyy HH:mm')}"></td>
+			      <td th:text="${i.jumlah_harga}"></td>
+			      <td th:text="${i.status_bayar}"></td>
+				  </tr>
+			  </tbody>
+		</table>
+
+  </div>
+</body>
+</html>

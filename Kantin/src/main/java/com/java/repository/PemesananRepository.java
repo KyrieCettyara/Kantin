@@ -26,9 +26,18 @@ public interface PemesananRepository extends JpaRepository<Pemesanan, Integer>{
 	List<Pemesanan> pemesananFinish();
 	
 	@Modifying
-	@Query(value = "SELECT MONTH(tanggal_pemesanan) AS monthSale, SUM(jumlah_harga) AS totalSale FROM pemesanan_produk p WHERE status_bayar = 1 GROUP BY YEAR(tanggal_pemesanan), MONTH(tanggal_pemesanan)", nativeQuery = true)
+	@Query(value = "SELECT YEAR(tanggal_pemesanan) as yearSale, MONTH(tanggal_pemesanan) AS monthSale, SUM(jumlah_harga) AS totalSale" 
+			+ " FROM pemesanan_produk p WHERE status_bayar = 1" 
+			+ " GROUP BY YEAR(tanggal_pemesanan), MONTH(tanggal_pemesanan)" 
+			+ " ORDER BY YEAR(tanggal_pemesanan), MONTH(tanggal_pemesanan)", nativeQuery = true)
 	List<IPemesanan> sumTotalSaleByMonth();
 	
+	@Modifying
+	@Query(value = " SELECT YEAR(tanggal_pemesanan) AS yearSale, SUM(jumlah_harga) AS totalSale" + 
+			" FROM pemesanan_produk p WHERE status_bayar = 1" + 
+			" GROUP BY YEAR(tanggal_pemesanan)" + 
+			" ORDER BY YEAR(tanggal_pemesanan)", nativeQuery = true)
+	List<IPemesanan> sumTotalSaleByYear();
 	
-	;
+	
 }

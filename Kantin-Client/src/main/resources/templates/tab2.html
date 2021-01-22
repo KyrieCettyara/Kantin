@@ -17,7 +17,7 @@
 	      <a class="nav-item nav-link" href="http://localhost:8081/produk">Produk</a>
 	      <a class="nav-item nav-link" href="http://localhost:8081/pemesanan">Pemesanan</a>
 	      <a class="nav-item nav-link" href="http://localhost:8081/tempat-duduk">Tempat Duduk</a>
-	      <a class="nav-item nav-link active " href="http://localhost:8081/pemesanan/riwayat">Riwayat<span class="sr-only">(current)</span></a>
+	      <a class="nav-item nav-link active " href="http://localhost:8081/riwayapemesanan/riwayat">Riwayat<span class="sr-only">(current)</span></a>
 	    </div>
 	  </div>
   </nav>
@@ -32,16 +32,16 @@
 		  <thead>
 		    <tr>
 		      <th scope="col">No. </th>
-		      <th scope="col">Tanggal Pemesanan</th>
-		      <th scope="col">Harga</th>
+		      <th scope="col">Tahun Pemesanan</th>
+		      <th scope="col">Total</th>
 		      <th></th>
 		    </tr>
 		  </thead>
 		  <tbody>
 			    <tr th:each="i,iterator : ${listRiwayat}">
 			      <td th:text="${iterator.index+1}"></td>
-			      <td th:text="${#dates.format(i.tanggal_pemesanan ,'dd/MMM/yyyy HH:mm')}"></td>
-			      <td th:text="${i.jumlah_harga}"></td>
+			      <td th:text="${i.yearSale}"></td>
+			      <td th:text="${i.totalSale}"></td>
 				</tr>
 			</tbody>
 		</table>

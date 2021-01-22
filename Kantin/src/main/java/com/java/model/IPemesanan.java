@@ -1,9 +1,9 @@
 package com.java.model;
 
-public interface IPemesanan {
-	Integer getYearSale();
-	Integer getMonthSale();
-	Integer getDaySale();
-	Integer getTotalSale();
+public class IPemesanan {
+	Integer yearSale;
+	Integer monthSale;
+	Integer daySale;
+	Integer totalSale;
 
 }

@@ -16,6 +16,7 @@
       <a class="nav-item nav-link" href="http://localhost:8081/produk">Produk</a>
       <a class="nav-item nav-link active " href="http://localhost:8081/pemesanan">Pemesanan<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="http://localhost:8081/tempat-duduk">Tempat Duduk</a>
+      <a class="nav-item nav-link" href="http://localhost:8081/pemesanan/riwayat">Riwayat</a>
     </div>
   </div>
 </nav>
@@ -37,7 +38,10 @@
 			      <td th:text="${iterator.index+1}"></td>
 			      <td th:text="${#dates.format(i.tanggal_pemesanan ,'dd/MMM/yyyy HH:mm')}"></td>
 			      <td th:text="${i.jumlah_harga}"></td>
-			      <td th:text="${i.status_bayar}"></td>
+			      <td>
+			      	<span th:if="${i.status_bayar == 1 }">Lunas</span>
+    				<span th:unless="${i.status_bayar == 1}">Belum dibayar</span>
+			      </td>
 				  </tr>
 			  </tbody>
 		</table>

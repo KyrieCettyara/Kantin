@@ -32,19 +32,22 @@
 		  <thead>
 		    <tr>
 		      <th scope="col">No. </th>
-		      <th scope="col">Tanggal Pemesanan</th>
-		      <th scope="col">Harga</th>
+		      <th scope="col">Tahun Pemesanan</th>
+		      <th scope="col">Bulan Pemesanan</th>
+		      <th scope="col">Total</th>
 		      <th></th>
 		    </tr>
 		  </thead>
 		  <tbody>
 			    <tr th:each="i,iterator : ${listRiwayat}">
 			      <td th:text="${iterator.index+1}"></td>
-			      <td th:text="${#dates.format(i.tanggal_pemesanan ,'dd/MMM/yyyy HH:mm')}"></td>
-			      <td th:text="${i.jumlah_harga}"></td>
+			      <td th:text="${i.yearSale}"></td>
+			      <td th:text="${i.monthSale}"></td>
+			      <td th:text="${i.totalSale}"></td>
 				</tr>
 			</tbody>
 		</table>
+		
 
   </div>
   

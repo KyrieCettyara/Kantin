@@ -42,6 +42,11 @@ public class PemesananController {
 		return pemesananService.getMonthTotalSale();
 	}
 	
+	@GetMapping("/SaleByYear")
+	public List<IPemesanan> getSaleByYear(){
+		return pemesananService.getYearTotalSale();
+	}
+	
 	@PostMapping(value="/add")
 	 public ResponseEntity<Pemesanan> createPemesanan(@RequestBody Pemesanan pemesanan){
 		pemesananService.savePemesanan(pemesanan);

@@ -39,4 +39,8 @@ public class PemesananService {
 	public List<IPemesanan> getMonthTotalSale(){
 		return pemesananRepo.sumTotalSaleByMonth();
 	}
+	
+	public List<IPemesanan> getYearTotalSale(){
+		return pemesananRepo.sumTotalSaleByYear();
+	}
 }
